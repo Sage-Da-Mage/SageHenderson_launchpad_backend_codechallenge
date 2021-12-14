@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaunchpadCodeChallenge.Models.Entities.VMs
+namespace LaunchpadCodeChallenge.Models.Entities.VMs.Employee
 {
     public class EmployeeVM
     {
@@ -16,7 +16,7 @@ namespace LaunchpadCodeChallenge.Models.Entities.VMs
         }
 
         // The constructor for creating an EmployeeVM from a Employee Entity
-        public EmployeeVM(Employee src)
+        public EmployeeVM(Entities.Employee src)
         {
             EmployeeId = src.EmployeeId;
             FirstName = src.FirstName;
@@ -27,7 +27,8 @@ namespace LaunchpadCodeChallenge.Models.Entities.VMs
             //Department = src.Department;
         }
 
-        // An employee has an Id which is unchangable after assignment
+        // An employee has an Id differentiating them from other Employees
+        // which is unchangable after assignment
         public int EmployeeId { get; init; }
 
         // An Employee has a FirstName
@@ -46,7 +47,7 @@ namespace LaunchpadCodeChallenge.Models.Entities.VMs
         public int DepartmentId { get; set; }
 
         // The Department class of the Department the Employee belongs to
-        public Department Department { get; set; }
+        //public Department Department { get; set; }
 
     }
 }

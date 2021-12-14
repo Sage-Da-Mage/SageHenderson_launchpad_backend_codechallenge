@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LaunchpadCodeChallenge.Models.Entities.VMs;
+using LaunchpadCodeChallenge.Models.Entities.VMs.Employee;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +11,36 @@ namespace LaunchpadCodeChallenge.Models.Entities
 {
     public class Employee
     {
+
+        // Default constructor to allow creation of an empty Employee entity
+        public Employee()
+        {
+
+        }
+
+        // The Constructor for creating an Employee from an EmployeeVM model
+        public Employee(EmployeeCreateVm src)
+        {
+            EmployeeId = src.EmployeeId;
+            FirstName = src.FirstName;
+            LastName = src.LastName;
+            JobTitle = src.JobTitle;
+            AddressOfResidence = src.AddressOfResidence;
+            DepartmentId = src.DepartmentId;
+        }
+
+        // The constructor for changing the properties of an Employee
+        // from an EmployeeUpdateModel
+        public Employee(EmployeeUpdateVM src)
+        {
+            FirstName = src.FirstName;
+            LastName = src.LastName;
+            JobTitle = src.JobTitle;
+            AddressOfResidence = src.AddressOfResidence;
+            DepartmentId = src.DepartmentId;
+        }
+
+         
         // An employee has an Id which is unchangable after assignment
         [Key]
         public int EmployeeId { get; init; }

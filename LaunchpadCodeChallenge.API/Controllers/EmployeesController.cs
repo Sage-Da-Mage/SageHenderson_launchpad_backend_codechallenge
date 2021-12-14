@@ -15,8 +15,6 @@ namespace LaunchpadCodeChallenge.API.Controllers
     {
 
         private readonly IEmployeeService _employeeService;
-
-
         public EmployeesController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
@@ -27,13 +25,11 @@ namespace LaunchpadCodeChallenge.API.Controllers
         [HttpGet]
         public IEnumerable<Employee> GetAll()
         {
-
+            // Use the GetAll method from the Service layer
             var results = _employeeService.GetAll();
 
             // Return the Employees gotten from the service layer
             return results;
-
-
         }
 
         // Get the department that an Employee belongs to from their DepartmentId
