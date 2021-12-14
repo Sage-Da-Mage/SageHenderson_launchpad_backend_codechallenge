@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaunchpadCodeChallenge.Repo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaunchpadCodeChallenge.Service", "LaunchpadCodeChallenge.Service\LaunchpadCodeChallenge.Service.csproj", "{FFB6D292-F05A-461D-AC50-3F2460C6124E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Question7Project", "Question7Project\Question7Project.csproj", "{D78DC683-1E45-4E47-A5D1-21A0A4514905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Question7Project", "Question7Project\Question7Project.csproj", "{D78DC683-1E45-4E47-A5D1-21A0A4514905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Question8Project", "Question8Project\Question8Project.csproj", "{127641F5-15CD-4EBC-BF80-45B94B738722}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D78DC683-1E45-4E47-A5D1-21A0A4514905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D78DC683-1E45-4E47-A5D1-21A0A4514905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D78DC683-1E45-4E47-A5D1-21A0A4514905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{127641F5-15CD-4EBC-BF80-45B94B738722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127641F5-15CD-4EBC-BF80-45B94B738722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127641F5-15CD-4EBC-BF80-45B94B738722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127641F5-15CD-4EBC-BF80-45B94B738722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
