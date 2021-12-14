@@ -31,11 +31,11 @@ namespace LaunchpadCodeChallenge.Repository.Repositories
         }
 
         // Get a single listing by Id
-        public async Task<Employee> Get(int id)
+        public async Task<Employee> Get(int employeeId)
         {
 
             // Get the Employee Entity you are seeking
-            var result = await _context.Employee.FirstOrDefaultAsync(i => i.EmployeeId == id);
+            var result = await _context.Employee.FirstOrDefaultAsync(i => i.EmployeeId == employeeId);
 
             // return the retrieved entry
             return result;
@@ -53,8 +53,11 @@ namespace LaunchpadCodeChallenge.Repository.Repositories
         }
 
         // Update a currently existing Employee
-        public async Task<Employee> Update(Employee src)
+        public async Task<Employee> Update(Employee src, int employeeId)
         {
+
+            // Add the inputted employeeId to the src
+            src.EmployeeId = employeeId;
 
             // Get the entity to update
             var result = await _context.Employee.FirstOrDefaultAsync(i => i.EmployeeId == src.EmployeeId);

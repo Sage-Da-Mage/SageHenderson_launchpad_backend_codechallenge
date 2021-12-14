@@ -1,4 +1,6 @@
 ﻿using LaunchpadCodeChallenge.Models.Entities;
+using LaunchpadCodeChallenge.Models.Entities.VMs.Department;
+using LaunchpadCodeChallenge.Repository.Repositories.Interfaces;
 using LaunchPadCodeChallenge.Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,57 +12,77 @@ namespace LaunchPadCodeChallenge.Service.Services
 {
     public class DepartmentService : IDepartmentService
     {
+        private readonly IDepartmentRepository _departmentRepository;
 
-        // A department Equivelant to the required Employee Code for the Code Challenge.
-        public IEnumerable<Department> GetAll()
+        public DepartmentService(IDepartmentRepository departmentRepository)
         {
-            var result = ListOfDepartments;
-
-            return result;
-
+            _departmentRepository = departmentRepository;
         }
 
 
-        // A department Equivelant to the required Employee Code for the Code Challenge.
-        public IList<Department> GetList()
+        public async Task<DepartmentVM> Create(DepartmentCreateVM src)
         {
-            // Make a new List to pull dummy data into
-            List<Department> result = new List<Department>();
+            // Generate a new Entity with the inputted data
+            var newEntity = new Department(src);
 
-            // Pull in dummy data 
-            result = ListOfDepartments;
+            // Use that data to create the new Department
+            var result = await _departmentRepository.Create(newEntity);
 
-            return result;
+            // Create a DepartmentVM from the result to return/show
+            var model = new DepartmentVM(result);
+
+            // Return the result as an DepartmentVM
+            return model;
+        }
+
+        // Get an Department by its EmployeeId
+        public async Task<DepartmentVM> Get(int id)
+        {
+
+            // Get the Department entitiy from the repository
+            var result = await _departmentRepository.Get(id);
+
+            // Create the EmployeeVm that we will return
+            var model = new DepartmentVM(result);
+
+            // Return the Department VM in a 200 response
+            return model;
 
         }
 
+        // Modified GetAll after switching to database implementation
+        public async Task<List<DepartmentVM>> GetAll()
+        {
+            // Get the Department entities from the repository
+            var results = await _departmentRepository.GetAll();
 
-        private readonly List<Department> ListOfDepartments = new()
+            // Build the Department view models to return to the client
+            var models = results.Select(employee => new DepartmentVM(employee)).ToList();
+
+            // Return the EmployeeVMs
+            return models;
+        }
+
+        public async Task<DepartmentVM> Update(DepartmentUpdateVM src)
         {
 
-            new Department
-            {
-                DepartmentId = 1,
-                DepartmentName = "SuperGood",
-                UniqueDepartmentAddress = "Silly Street"
-            },
+            // Make the repository update the Department
+            var updateData = new Department(src);
+            var result = await _departmentRepository.Update(updateData);
 
-            new Department
-            {
-                DepartmentId = 2,
-                DepartmentName = "UltraGreat",
-                UniqueDepartmentAddress = "Wall Street",
-                CompanyId = 1
-            },
+            //Create the EmployeeVm model for returning to the client
+            var model = new DepartmentVM(result);
 
-            new Department
-            {
-                DepartmentId = 3,
-                DepartmentName = "FantasticExcellent",
-                UniqueDepartmentAddress = "Yellow Brick Road",
-                CompanyId = 2
-            }
+            //Finally return the DepartmentVM to show that the change was sucessfull
+            return model;
+        }
 
-        };
+        public async Task Delete(int id)
+        {
+            // Inform the repository to delete the specified Listing Entity
+            await _departmentRepository.Delete(id);
+        }
+
+
     }
 }

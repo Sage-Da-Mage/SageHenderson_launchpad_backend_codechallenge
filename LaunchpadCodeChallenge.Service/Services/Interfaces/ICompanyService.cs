@@ -1,4 +1,5 @@
 ﻿using LaunchpadCodeChallenge.Models.Entities;
+using LaunchpadCodeChallenge.Models.Entities.VMs.Company;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,19 @@ namespace LaunchpadCodeChallenge.Service.Services.Interfaces
 {
     public interface ICompanyService
     {
-        public IEnumerable<Company> GetAll();
+        // Create a new Company
+        Task<CompanyVM> Create(CompanyCreateVM src);
 
-        public IList<Company> ListAll();
+        //Get a single existing Company by its Id
+        Task<CompanyVM> Get(int id);
+
+        Task<List<CompanyVM>> GetAll();
+
+        //Update a currently existing Company
+        Task<CompanyVM> Update(CompanyUpdateVM src);
+
+        // Delete a Company
+        Task Delete(int id);
+
     }
 }

@@ -1,4 +1,6 @@
 using LaunchpadCodeChallenge.Repository;
+using LaunchpadCodeChallenge.Repository.Repositories;
+using LaunchpadCodeChallenge.Repository.Repositories.Interfaces;
 using LaunchpadCodeChallenge.Service.Services.Interfaces;
 using LaunchPadCodeChallenge.Service.Services;
 using LaunchPadCodeChallenge.Service.Services.Interfaces;
@@ -35,6 +37,10 @@ namespace LaunchpadCodeChallenge.API
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IDepartmentService, DepartmentService>();
             services.AddScoped<ICompanyService, CompanyService>();
+
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
         }
 
 

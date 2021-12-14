@@ -16,7 +16,7 @@ namespace LaunchpadCodeChallenge.Repository.Repositories.Interfaces
 
         Task<List<Employee>> GetAll();                          // Get all Employees
 
-        Task<Employee> Update(Employee src);                     // Update an existing Employee
+        Task<Employee> Update(Employee src, int EmployeeId);    // Update an existing Employee
 
         Task Delete(int id);                                    // Delete an Employee
 

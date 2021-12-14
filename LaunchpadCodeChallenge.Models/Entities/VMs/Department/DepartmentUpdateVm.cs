@@ -9,7 +9,7 @@ namespace LaunchpadCodeChallenge.Models.Entities.VMs.Department
 {
     // The difference between this file and DepartmentCreateVm is that
     // this file lacks DepartmentId since that shouldn't be updated
-    public class DepartmentUpdateVm
+    public class DepartmentUpdateVM
     {
 
         // An Employee has a FirstName

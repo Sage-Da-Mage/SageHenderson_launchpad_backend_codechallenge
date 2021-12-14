@@ -19,7 +19,7 @@ namespace LaunchPadCodeChallenge.Service.Services.Interfaces
         Task<EmployeeVM> Get(int id);
 
         //Update a currently existing Employee
-        Task<EmployeeVM> Update(EmployeeUpdateVM src);
+        Task<EmployeeVM> Update(EmployeeUpdateVM src, int EmployeeId);
 
         // Delete a Employee
         Task Delete(int id);

@@ -43,7 +43,7 @@ namespace LaunchpadCodeChallenge.Models.Entities
          
         // An employee has an Id which is unchangable after assignment
         [Key]
-        public int EmployeeId { get; init; }
+        public int EmployeeId { get; set; }
 
         // An Employee has a FirstName
         [Required]
@@ -64,8 +64,6 @@ namespace LaunchpadCodeChallenge.Models.Entities
         // The Id of the Department this employee belongs to
         [Required]
         public int DepartmentId { get; set; }
-        public Guid Id { get; set; }
-
         // The Department class of the Department the Employee belongs to
         //[Required]
         //public Department Department { get; set; }

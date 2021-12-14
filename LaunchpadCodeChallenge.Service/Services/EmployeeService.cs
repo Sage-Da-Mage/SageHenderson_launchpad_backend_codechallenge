@@ -39,11 +39,11 @@ namespace LaunchPadCodeChallenge.Service.Services
         }
 
         // Get an Employee by its EmployeeId
-        public async Task<EmployeeVM> Get(int id)
+        public async Task<EmployeeVM> Get(int EmployeeId)
         {
 
             // Get the Employee entitiy from the repository
-            var result = await _employeeRepository.Get(id);
+            var result = await _employeeRepository.Get(EmployeeId);
 
             // Create the EmployeeVm that we will return
             var model = new EmployeeVM(result);
@@ -66,12 +66,12 @@ namespace LaunchPadCodeChallenge.Service.Services
             return models;
         }
 
-        public async Task<EmployeeVM> Update(EmployeeUpdateVM src)
+        public async Task<EmployeeVM> Update(EmployeeUpdateVM src, int employeeId)
         {
 
             // Make the repository update the Employee
             var updateData = new Employee(src);
-            var result = await _employeeRepository.Update(updateData);
+            var result = await _employeeRepository.Update(updateData, employeeId);
 
             //Create the EmployeeVm model for returning to the client
             var model = new EmployeeVM(result);

@@ -36,7 +36,7 @@ namespace LaunchpadCodeChallenge.API.Controllers
         }
 
         // Get a Employee by it's Id.
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         public async Task<ActionResult<EmployeeVM>> Get([FromRoute] int id)
         {
             // Get the requested Listing entity from the service
@@ -49,11 +49,11 @@ namespace LaunchpadCodeChallenge.API.Controllers
 
         // Update a Employee using inputted data, excluding non-updatable properties
         // like id.
-        [HttpPut("employee/{id}")]
-        public async Task<ActionResult<EmployeeVM>> Update([FromBody] EmployeeUpdateVM data)
+        [HttpPut("update/{employeeId}")]
+        public async Task<ActionResult<EmployeeVM>> Update([FromBody] EmployeeUpdateVM data, [FromRoute] int employeeId)
         {
             // Update Listing entity from the service layer
-            var result = await _employeeService.Update(data);
+            var result = await _employeeService.Update(data, employeeId);
 
             // Return a 200 code + the ListingVM to comfirm the update went through properly
             return Ok(result);
@@ -61,7 +61,7 @@ namespace LaunchpadCodeChallenge.API.Controllers
 
 
         // Delete a listing from the database (determined by Id).
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<ActionResult> Delete([FromRoute] int id)
         {
             // Tell the repository to delete the requested Listing
@@ -72,18 +72,8 @@ namespace LaunchpadCodeChallenge.API.Controllers
         }
 
 
-
-
-
-
-
-
-
-
-
-
         // Get all employees (CC required)
-        [HttpGet]
+        [HttpGet("getAll")]
         public async Task<List<EmployeeVM>> GetAll()
         {
             // Use the GetAll method from the Service layer
