@@ -4,10 +4,21 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>e70c1fff-d2e9-4536-85ab-83ec8de249da</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LaunchpadCodeChallenge.Models\LaunchpadCodeChallenge.Models.csproj" />
+    <ProjectReference Include="..\LaunchpadCodeChallenge.Repository\LaunchpadCodeChallenge.Repository.csproj" />
+    <ProjectReference Include="..\LaunchpadCodeChallenge.Service\LaunchpadCodeChallenge.Service.csproj" />
   </ItemGroup>
 
 </Project>
