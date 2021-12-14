@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Interfaces\" />
+    <ProjectReference Include="..\LaunchpadCodeChallenge.Models\LaunchpadCodeChallenge.Models.csproj" />
   </ItemGroup>
 
 </Project>
