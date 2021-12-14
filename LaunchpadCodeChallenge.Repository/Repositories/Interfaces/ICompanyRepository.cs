@@ -9,14 +9,14 @@ namespace LaunchpadCodeChallenge.Repository.Repositories.Interfaces
 {
     public interface ICompanyRepository
     {
-        Task<Company> Create(Company src);                    // Create a new Company
+        Task<Company> Create(Company src);                      // Create a new Company
 
 
-        Task<Company> Get(int id);                             // Get a specific Company by Id
+        Task<Company> Get(int id);                              // Get a specific Company by Id
 
-        Task<List<Company>> GetAll();                          // Get all Employees
+        Task<List<Company>> GetAll();                           // Get all Company
 
-        Task<Company> Update(Company src);                     // Update an existing Company
+        Task<Company> Update(Company src, int companyId);       // Update an existing Company
 
         Task Delete(int id);                                    // Delete an Company
     }

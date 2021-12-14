@@ -53,8 +53,11 @@ namespace LaunchpadCodeChallenge.Repository.Repositories
         }
 
         // Update a currently existing Department
-        public async Task<Department> Update(Department src)
+        public async Task<Department> Update(Department src, int departmentId)
         {
+
+            // Add the inputted employeeId to the src
+            src.DepartmentId = departmentId;
 
             // Get the entity to update
             var result = await _context.Department.FirstOrDefaultAsync(i => i.DepartmentId == src.DepartmentId);

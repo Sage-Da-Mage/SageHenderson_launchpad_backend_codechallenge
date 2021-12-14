@@ -63,12 +63,12 @@ namespace LaunchPadCodeChallenge.Service.Services
             return models;
         }
 
-        public async Task<CompanyVM> Update(CompanyUpdateVM src)
+        public async Task<CompanyVM> Update(CompanyUpdateVM src, int companyId)
         {
 
             // Make the repository update the Company
             var updateData = new Company(src);
-            var result = await _companyRepository.Update(updateData);
+            var result = await _companyRepository.Update(updateData, companyId);
 
             //Create the CompanyVm model for returning to the client
             var model = new CompanyVM(result);

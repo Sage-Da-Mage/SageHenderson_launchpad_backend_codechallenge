@@ -63,12 +63,12 @@ namespace LaunchPadCodeChallenge.Service.Services
             return models;
         }
 
-        public async Task<DepartmentVM> Update(DepartmentUpdateVM src)
+        public async Task<DepartmentVM> Update(DepartmentUpdateVM src, int departmentId)
         {
 
             // Make the repository update the Department
             var updateData = new Department(src);
-            var result = await _departmentRepository.Update(updateData);
+            var result = await _departmentRepository.Update(updateData, departmentId);
 
             //Create the EmployeeVm model for returning to the client
             var model = new DepartmentVM(result);

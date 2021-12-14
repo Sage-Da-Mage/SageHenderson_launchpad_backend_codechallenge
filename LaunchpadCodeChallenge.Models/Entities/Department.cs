@@ -37,7 +37,7 @@ namespace LaunchpadCodeChallenge.Models.Entities
 
         // A Department has an Id to differenciate it from others (can't be changed after assignment)
         [Key]
-        public int DepartmentId { get; init; }
+        public int DepartmentId { get; set; }
 
         // A Department must have a name
         [Required]

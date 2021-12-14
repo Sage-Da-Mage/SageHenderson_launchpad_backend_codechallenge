@@ -19,7 +19,7 @@ namespace LaunchpadCodeChallenge.Service.Services.Interfaces
         Task<List<CompanyVM>> GetAll();
 
         //Update a currently existing Company
-        Task<CompanyVM> Update(CompanyUpdateVM src);
+        Task<CompanyVM> Update(CompanyUpdateVM src, int companyId);
 
         // Delete a Company
         Task Delete(int id);

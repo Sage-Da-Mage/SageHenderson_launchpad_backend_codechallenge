@@ -20,7 +20,7 @@ namespace LaunchPadCodeChallenge.Service.Services.Interfaces
         Task<List<DepartmentVM>> GetAll();
 
         //Update a currently existing Department
-        Task<DepartmentVM> Update(DepartmentUpdateVM src);
+        Task<DepartmentVM> Update(DepartmentUpdateVM src, int departmentId);
 
         // Delete a Department
         Task Delete(int id);

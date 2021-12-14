@@ -10,15 +10,15 @@ namespace LaunchpadCodeChallenge.Repository.Repositories.Interfaces
     public interface IDepartmentRepository
     {
 
-        Task<Department> Create(Department src);                    // Create a new Employee
+        Task<Department> Create(Department src);                    // Create a new Department
 
 
-        Task<Department> Get(int id);                             // Get a specific Employee by Id
+        Task<Department> Get(int id);                               // Get a specific Department by Id
 
-        Task<List<Department>> GetAll();                          // Get all Employees
+        Task<List<Department>> GetAll();                            // Get all Department
 
-        Task<Department> Update(Department src);                     // Update an existing Employee
+        Task<Department> Update(Department src, int departmentId);  // Update an existing Department
 
-        Task Delete(int id);                                    // Delete an Employee
+        Task Delete(int id);                                        // Delete an Department
     }
 }

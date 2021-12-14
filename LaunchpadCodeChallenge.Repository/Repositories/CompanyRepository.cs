@@ -53,8 +53,11 @@ namespace LaunchpadCodeChallenge.Repository.Repositories
         }
 
         // Update a currently existing Company
-        public async Task<Company> Update(Company src)
+        public async Task<Company> Update(Company src, int companyId)
         {
+
+            // Add the inputted companyId to the srv
+            src.CompanyId = companyId;
 
             // Get the entity to update
             var result = await _context.Company.FirstOrDefaultAsync(i => i.CompanyId == src.CompanyId);

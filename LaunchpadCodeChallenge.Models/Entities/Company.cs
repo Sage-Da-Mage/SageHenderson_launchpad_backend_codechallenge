@@ -32,7 +32,7 @@ namespace LaunchpadCodeChallenge.Models.Entities
 
         // The Companies Id, so it can be differenciated
         [Key]
-        public int CompanyId { get; init; }
+        public int CompanyId { get; set; }
 
         // The name of the Company
         [Required]
