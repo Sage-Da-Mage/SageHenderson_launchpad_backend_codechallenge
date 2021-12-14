@@ -4,6 +4,15 @@ namespace Question8Project
 {
     class Program
     {
+        // The method TESTModule takes in an input and gives an output based on the following requirements:
+        /*
+         *  a. For integer values of 1,2,3,4 multiply the provided value by 2 and return the result.
+            b. For any integer value bigger than 4, multiply the provided value by 3 and return the result.
+            c. For integer values below 1, throw proper exception.
+            d. For float values of 1.0f and 2.0f return 3.0f.
+            e. For any string values convert them to UpperCase.
+            f. For anything else, return the input value itself.
+         */
         public static object TESTModule(object inputObject)
         {
             // Set result to null so that it can be checked through the switch
