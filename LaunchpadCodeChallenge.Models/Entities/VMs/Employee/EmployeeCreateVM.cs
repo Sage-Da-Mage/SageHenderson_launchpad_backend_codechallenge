@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LaunchpadCodeChallenge.Models.Entities.VMs.Employee
 {
     // The VM that is used to create an EmployeeVm
-    public class EmployeeCreateVm
+    public class EmployeeCreateVM
     {
         // The comments describing the properties below are in Employee.cs
 

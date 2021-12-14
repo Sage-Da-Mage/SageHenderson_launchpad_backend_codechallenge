@@ -19,7 +19,9 @@ namespace LaunchpadCodeChallenge.Repository
 
         public DbSet<Employee> Employee { get; set; }
 
+        public DbSet<Department> Department { get; set; }
 
+        public DbSet<Company> Company { get; set; }
 
     }
 }

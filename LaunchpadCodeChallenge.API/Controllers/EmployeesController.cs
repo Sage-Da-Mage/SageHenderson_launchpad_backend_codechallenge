@@ -1,4 +1,6 @@
 ﻿using LaunchpadCodeChallenge.Models.Entities;
+using LaunchpadCodeChallenge.Models.Entities.VMs.Department;
+using LaunchpadCodeChallenge.Models.Entities.VMs.Employee;
 using LaunchPadCodeChallenge.Service.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,24 +23,24 @@ namespace LaunchpadCodeChallenge.API.Controllers
         }
 
 
-        // Get all employees
+        // Get all employees (CC required)
         [HttpGet]
-        public IEnumerable<Employee> GetAll()
+        public async Task<List<EmployeeVM>> GetAll()
         {
             // Use the GetAll method from the Service layer
-            var results = _employeeService.GetAll();
+            var results = await _employeeService.GetAll();
 
             // Return the Employees gotten from the service layer
             return results;
         }
 
-        // Get the department that an Employee belongs to from their DepartmentId
+        // Get the department that an Employee belongs to from their DepartmentId (CC required)
         [HttpGet("department/{inputId}")]
-        public ActionResult<Department> GetDepartmentFromId([FromRoute] int inputId)
+        public async Task<DepartmentVM> GetDepartmentFromId([FromRoute] int inputId)
         {
-            var results = _employeeService.GetDepartmentById(inputId);
+            var results = await _employeeService.GetDepartmentById(inputId);
 
-            return Ok(results);
+            return results;
 
         }
     }

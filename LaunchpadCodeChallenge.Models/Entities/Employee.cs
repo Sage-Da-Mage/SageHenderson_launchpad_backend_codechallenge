@@ -19,7 +19,7 @@ namespace LaunchpadCodeChallenge.Models.Entities
         }
 
         // The Constructor for creating an Employee from an EmployeeVM model
-        public Employee(EmployeeCreateVm src)
+        public Employee(EmployeeCreateVM src)
         {
             EmployeeId = src.EmployeeId;
             FirstName = src.FirstName;
@@ -64,6 +64,7 @@ namespace LaunchpadCodeChallenge.Models.Entities
         // The Id of the Department this employee belongs to
         [Required]
         public int DepartmentId { get; set; }
+        public Guid Id { get; set; }
 
         // The Department class of the Department the Employee belongs to
         //[Required]

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LaunchpadCodeChallenge.Models\LaunchpadCodeChallenge.Models.csproj" />
+    <ProjectReference Include="..\LaunchpadCodeChallenge.Repository\LaunchpadCodeChallenge.Repository.csproj" />
   </ItemGroup>
 
 </Project>
