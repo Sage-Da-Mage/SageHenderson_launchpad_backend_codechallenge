@@ -34,7 +34,8 @@ namespace LaunchPadCodeChallenge.Repository.Repositories
             {
                 DepartmentId = 1,
                 DepartmentName = "SuperGood",
-                UniqueDepartmentAddress = "Silly Street"
+                UniqueDepartmentAddress = "Silly Street",
+                CompanyId = 1
             },
 
             new Department

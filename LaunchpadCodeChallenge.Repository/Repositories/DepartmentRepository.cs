@@ -37,6 +37,7 @@ namespace LaunchpadCodeChallenge.Repository.Repositories
             // Get the Department Entity you are seeking
             var result = await _context.Department.FirstOrDefaultAsync(i => i.DepartmentId == id);
 
+
             // return the retrieved entry
             return result;
 
