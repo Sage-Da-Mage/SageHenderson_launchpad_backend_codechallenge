@@ -6,8 +6,8 @@ namespace Question8Project
     {
         public static object TESTModule(object inputObject)
         {
-            // Set result to null so that it can be checked through the switch
-            object result = null;
+            // Set an object that we can use to return values depending on what cases the switch lands in
+            object result;
 
             // Begin the switch statement
             switch (inputObject)
