@@ -6,6 +6,26 @@ services:
     build:
       context: .
       dockerfile: LaunchpadCodeChallenge.API/Dockerfile
-
     ports:
       - "6900:80"
+      - "6901:222"
+    environment:
+     - ConnectionStrings__DefaultConnection=Server=LPFCC.db;Database=devdb;User Id=devdbuser;Password=devdbpassword
+    depends_on:
+     - LPFCC.db
+
+  LPFCC.db:
+   restart: on-failure
+   image: "postgis/postgis:13-3.1-alpine"
+   container_name: "LPFCC.db"
+   environment:
+    - POSTGRES_USER=devdbuser
+    - POSTGRES_DB=devdb
+    - POSTGRES_PASSWORD=devdbpassword
+   volumes:
+    - LPFCC.db:/var/lib/postgresql/data
+   ports:
+        - "6990:5432" 
+
+volumes:
+  LPFCC.db:

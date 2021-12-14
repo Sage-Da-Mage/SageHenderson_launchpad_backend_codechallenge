@@ -118,7 +118,6 @@ namespace LaunchPadCodeChallenge.Repository.Repositories
                 AddressOfResidence = "The Entities Realm",
                 DepartmentId = 3
             }
-
         };
 
 
