@@ -1,5 +1,8 @@
+using LaunchpadCodeChallenge.Repository;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,7 +16,32 @@ namespace LaunchpadCodeChallenge.API
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+            // Create a Serice scope so we can get a services collection
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider; // Services Collection
+                try
+                {
+
+                    // Get an ApplicationDbContext instance so we can preform the migrations on it
+                    var context = services.GetRequiredService<ApplicationDbContext>();
+
+
+                    // Preform a migration
+                    context.Database.Migrate();
+                }
+                catch (Exception ex)
+                {
+                    // Output an error log to the configured logging service
+                    // By default the logging service would just output to the console
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error has occured while migrating the database");
+                }
+            }
+
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

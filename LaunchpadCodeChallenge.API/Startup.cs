@@ -46,10 +46,10 @@ namespace LaunchpadCodeChallenge.API
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql( // Connect to the postgres database
                     Configuration.GetConnectionString("DefaultConnection"),
-                    builder =>
+                    b =>
                     {
                         // Configure what project we want to store our Code-First Migrations in
-                        builder.MigrationsAssembly("LaunchpadCodeChallenge.Repository");
+                        b.MigrationsAssembly("LaunchpadCodeChallenge.Repository");
                     })
                 );
 
