@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LaunchpadCodeChallenge.Service.Services.Interfaces
 {
-    interface ICompanyService
+    public interface ICompanyService
     {
         public IEnumerable<Company> GetAll();
 

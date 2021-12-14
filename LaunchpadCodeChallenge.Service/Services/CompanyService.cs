@@ -1,4 +1,5 @@
 ﻿using LaunchpadCodeChallenge.Models.Entities;
+using LaunchpadCodeChallenge.Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LaunchPadCodeChallenge.Service.Services
 {
-    public class CompanyService
+    public class CompanyService : ICompanyService
     {
         // Required Service method for Code Challenge
         public IEnumerable<Company> GetAll()

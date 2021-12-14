@@ -1,3 +1,6 @@
+using LaunchpadCodeChallenge.Service.Services.Interfaces;
+using LaunchPadCodeChallenge.Service.Services;
+using LaunchPadCodeChallenge.Service.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,11 +25,25 @@ namespace LaunchpadCodeChallenge.API
 
         public IConfiguration Configuration { get; }
 
+
+        public void ConfigureDependencyInjection(IServiceCollection services)
+        {
+            // Configure the Dependency Injection
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<ICompanyService, CompanyService>();
+        }
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+
+            ConfigureDependencyInjection(services);
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

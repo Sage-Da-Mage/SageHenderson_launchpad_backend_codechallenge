@@ -8,4 +8,4 @@ services:
       dockerfile: LaunchpadCodeChallenge.API/Dockerfile
 
     ports:
-      - "3400:80"
+      - "6900:80"

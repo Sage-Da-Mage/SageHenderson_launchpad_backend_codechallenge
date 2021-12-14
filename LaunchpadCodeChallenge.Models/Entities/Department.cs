@@ -28,8 +28,8 @@ namespace LaunchpadCodeChallenge.Models.Entities
         public int CompanyId { get; set; }
 
         // The Company Class that this department is a part of
-        [Required]
-        public Company Company { get; set; }
+        //[Required]
+        //public Company Company { get; set; }
 
     }
 }

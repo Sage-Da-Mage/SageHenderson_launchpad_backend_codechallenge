@@ -1,42 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaunchpadCodeChallenge.Models.Entities
+namespace LaunchpadCodeChallenge.Models.Entities.VMs
 {
-    public class Employee
+    public class EmployeeVM
     {
+
+        // The default constructor for creating empty EmployeeVMs
+        public EmployeeVM()
+        {
+
+        }
+
+        // The constructor for creating an EmployeeVM from a Employee Entity
+        public EmployeeVM(Employee src)
+        {
+            EmployeeId = src.EmployeeId;
+            FirstName = src.FirstName;
+            LastName = src.LastName;
+            JobTitle = src.JobTitle;
+            AddressOfResidence = src.AddressOfResidence;
+            DepartmentId = src.DepartmentId;
+            //Department = src.Department;
+        }
+
         // An employee has an Id which is unchangable after assignment
-        [Key]
         public int EmployeeId { get; init; }
 
         // An Employee has a FirstName
-        [Required]
         public string FirstName { get; set; }
 
         // An Employee has a LastName
-        [Required]
         public string LastName { get; set; }
 
         // An Employee has a JobTitle
-        [Required]
         public string JobTitle { get; set; }
 
         // An employee has an AddressOfResidence
-        [Required]
         public string AddressOfResidence { get; set; }
 
         // The Id of the Department this employee belongs to
-        [Required]
         public int DepartmentId { get; set; }
 
         // The Department class of the Department the Employee belongs to
-        //[Required]
-        //public Department Department { get; set; }
-
+        public Department Department { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LaunchpadCodeChallenge.Models.Entities;
+using LaunchPadCodeChallenge.Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LaunchPadCodeChallenge.Service.Services
 {
-    public class EmployeeService
+    public class EmployeeService : IEmployeeService
     {
 
         // Required Service method for Code Challenge
@@ -33,6 +34,71 @@ namespace LaunchPadCodeChallenge.Service.Services
 
         }
 
+        // Controller endpoint method for Question2
+        public Department GetDepartmentById(int id)
+        {
+
+            List<Department> depoList = new List<Department>();
+
+            depoList = ListOfDepartments;
+
+            foreach (Department depoCheck in depoList)
+            {
+
+                if(depoCheck.DepartmentId == id)
+                {
+                    return depoCheck;
+                }
+            }
+            return null;
+
+        }
+
+
+
+        private readonly List<Company> ListOfCompanies = new()
+        {
+            new Company
+            {
+                CompanyId = 1,
+                CompanyName = "Rad Company",
+            },
+
+            new Company
+            {
+                CompanyId = 2,
+                CompanyName = "Fantastic Company"
+            }
+        };
+
+        private readonly List<Department> ListOfDepartments = new()
+        {
+
+            new Department
+            {
+                DepartmentId = 1,
+                DepartmentName = "SuperGood",
+                UniqueDepartmentAddress = "Silly Street",
+                CompanyId = 1
+            },
+
+            new Department
+            {
+                DepartmentId = 2,
+                DepartmentName = "UltraGreat",
+                UniqueDepartmentAddress = "Wall Street",
+                CompanyId = 1
+            },
+
+            new Department
+            {
+                DepartmentId = 3,
+                DepartmentName = "FantasticExcellent",
+                UniqueDepartmentAddress = "Yellow Brick Road",
+                CompanyId = 2
+            }
+
+        };
 
 
         private readonly List<Employee> ListOfEmployees = new()
@@ -99,7 +165,5 @@ namespace LaunchPadCodeChallenge.Service.Services
             }
 
         };
-
     }
-
 }

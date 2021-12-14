@@ -1,4 +1,5 @@
 ﻿using LaunchpadCodeChallenge.Models.Entities;
+using LaunchPadCodeChallenge.Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LaunchPadCodeChallenge.Service.Services
 {
-    public class DepartmentService
+    public class DepartmentService : IDepartmentService
     {
 
         // A department Equivelant to the required Employee Code for the Code Challenge.

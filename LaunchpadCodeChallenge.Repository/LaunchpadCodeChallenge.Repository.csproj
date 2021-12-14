@@ -8,4 +8,8 @@
     <ProjectReference Include="..\LaunchpadCodeChallenge.Models\LaunchpadCodeChallenge.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\Interfaces\" />
+  </ItemGroup>
+
 </Project>

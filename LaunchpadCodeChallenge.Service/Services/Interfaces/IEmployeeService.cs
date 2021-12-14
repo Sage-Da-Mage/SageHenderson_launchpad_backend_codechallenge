@@ -15,6 +15,7 @@ namespace LaunchPadCodeChallenge.Service.Services.Interfaces
 
         public IList<Employee> ListAll();
 
+        public Department GetDepartmentById(int id);
 
     }
 }
